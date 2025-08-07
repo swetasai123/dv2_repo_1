@@ -1,0 +1,163 @@
+hubs:
+  - table_name: order_details
+    business_key: order_id
+    source_table: order_details
+  - table_name: shippers
+    business_key: shipper_id
+    source_table: shippers
+  - table_name: orders
+    business_key: order_id
+    source_table: orders
+  - table_name: regions
+    business_key: region_id
+    source_table: regions
+  - table_name: suppliers
+    business_key: supplier_id
+    source_table: suppliers
+  - table_name: products
+    business_key: product_id
+    source_table: products
+  - table_name: categories
+    business_key: category_id
+    source_table: categories
+  - table_name: territories
+    business_key: territory_id
+    source_table: territories
+  - table_name: customers
+    business_key: customer_id
+    source_table: customers
+  - table_name: employees
+    business_key: employee_id
+    source_table: employees
+  - table_name: customer_demographics
+    business_key: customer_type_id
+    source_table: customer_demographics
+
+sats:
+  - table_name: order_details
+    business_key: order_id
+    descriptive_fields:
+      - product_id
+      - unit_price
+      - quantity
+      - discount
+    source_table: order_details
+  - table_name: shippers
+    business_key: shipper_id
+    descriptive_fields:
+      - company_name
+      - phone
+    source_table: shippers
+  - table_name: orders
+    business_key: order_id
+    descriptive_fields:
+      - customer_id
+      - employee_id
+      - order_date
+      - required_date
+      - shipped_date
+      - ship_via
+      - freight
+      - ship_name
+      - ship_city
+      - ship_region
+      - ship_postal_code
+      - ship_country
+    source_table: orders
+  - table_name: regions
+    business_key: region_id
+    descriptive_fields:
+      - region_description
+    source_table: regions
+  - table_name: suppliers
+    business_key: supplier_id
+    descriptive_fields:
+      - company_name
+      - contact_name
+      - contact_title
+      - address
+      - city
+      - region
+      - postal_code
+      - country
+      - phone
+      - fax
+      - home_page
+    source_table: suppliers
+  - table_name: products
+    business_key: product_id
+    descriptive_fields:
+      - product_name
+      - supplier_id
+      - category_id
+      - quantity_per_unit
+      - unit_price
+      - units_in_stock
+      - units_on_order
+      - reorder_level
+      - discontinued
+    source_table: products
+  - table_name: categories
+    business_key: category_id
+    descriptive_fields:
+      - category_name
+      - description
+      - picture
+    source_table: categories
+  - table_name: territories
+    business_key: territory_id
+    descriptive_fields:
+      - territory_description
+      - region_id
+    source_table: territories
+  - table_name: customers
+    business_key: customer_id
+    descriptive_fields:
+      - customer_name
+      - contact_name
+      - contact_title
+      - address
+      - city
+      - region
+      - postal_code
+      - country
+      - phone
+      - fax
+    source_table: customers
+  - table_name: employees
+    business_key: employee_id
+    descriptive_fields:
+      - last_name
+      - first_name
+      - title
+      - title_of_courtesy
+      - birth_date
+      - hire_date
+      - address
+      - city
+      - region
+      - postal_code
+      - country
+      - home_phone
+      - extension
+      - photo
+      - notes
+      - reports_to
+      - photo_path
+    source_table: employees
+  - table_name: customer_demographics
+    business_key: customer_type_id
+    descriptive_fields:
+      - customer_desc
+    source_table: customer_demographics
+
+links:
+  - table_name: employees_territories
+    business_key: employee_id|territory_id
+    source_table: employees_territories
+  - table_name: customer_customer_demo
+    business_key: customer_id|customer_type_id
+    source_table: customer_customer_demo
+  - table_name: order_customer_employee
+    business_key: order_id|customer_id|employee_id
+    source_table: orders

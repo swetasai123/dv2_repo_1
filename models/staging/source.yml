@@ -1,0 +1,18 @@
+sources:
+  - name: BigQuery_raw
+    database: data-vault-dbt-configuration1
+    schema: dbt_NorthWind_dvlt1
+    tables:
+      - name: categories
+      - name: customer_customer_demo
+      - name: customer_demographics
+      - name: customers
+      - name: employees
+      - name: employees_territories
+      - name: order_details
+      - name: orders
+      - name: products
+      - name: regions
+      - name: shippers
+      - name: suppliers
+      - name: territories
