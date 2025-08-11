@@ -1,35 +1,35 @@
 hubs:
-  - table_name: order_details
+  - table_name: hub_order_details
     business_key: order_id
     source_table: order_details
-  - table_name: shippers
+  - table_name: hub_shippers
     business_key: shipper_id
     source_table: shippers
-  - table_name: orders
+  - table_name: hub_orders
     business_key: order_id
     source_table: orders
-  - table_name: regions
+  - table_name: hub_regions
     business_key: region_id
     source_table: regions
-  - table_name: suppliers
+  - table_name: hub_suppliers
     business_key: supplier_id
     source_table: suppliers
-  - table_name: products
+  - table_name: hub_products
     business_key: product_id
     source_table: products
-  - table_name: categories
+  - table_name: hub_categories
     business_key: category_id
     source_table: categories
-  - table_name: territories
+  - table_name: hub_territories
     business_key: territory_id
     source_table: territories
-  - table_name: customers
+  - table_name: hub_customers
     business_key: customer_id
     source_table: customers
-  - table_name: employees
+  - table_name: hub_employees
     business_key: employee_id
     source_table: employees
-  - table_name: customer_demographics
+  - table_name: hub_customer_demographics
     business_key: customer_type_id
     source_table: customer_demographics
 

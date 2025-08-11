@@ -1,31 +1,8 @@
-{% macro generate_hubs() %}
 
-{% set metadata = load_yaml('macros/data_vault_metadata.yml') %}
-
--- === Generate Hubs ===
-{% for hub in metadata['hubs'] %}
-   -- HUB: {{ hub.table_name }}
-   {{
-       config(materialized='view', alias=hub.table_name)
-   }}
-   with source_data as (
-       select
-           {% for key in hub.business_keys %}
-               {{ key }},
-           {% endfor %}
-           current_timestamp() as load_date
-       from {{ hub.source_table }}
-   )
-   select
-       {{ dbt_utils.generate_surrogate_key(hub.business_keys) }} as {{ hub.table_name }}_hk,
-       *
-   from source_data;
-{% endfor %}
-{% endmacro %}
 
 {% macro generate_links() %}
 -- === Generate Links ===
-{% for link in metadata['links'] %}
+{% for link in metadata.links %}
    -- LINK: {{ link.table_name }}
    {{
        config(materialized='view', alias=link.table_name)
@@ -47,7 +24,7 @@
 
 {% macro generate_sats() %}
 -- === Generate Satellites ===
-{% for sat in metadata['sats'] %}
+{% for sat in metadata.sats %}
    -- SATELLITE: {{ sat.table_name }}
    {{
        config(materialized='view', alias=sat.table_name)
